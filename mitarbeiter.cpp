@@ -40,7 +40,7 @@ void Mitarbeiter::print()
 	cout << "Der Name des Mitarbeiters lautet:" <<name_Mitarbeiter <<endl;
 	cout << "Die Qualifikation des Mitarbeiters lautet:" <<qualifikation_Mitarbeiter <<endl;
 }
-//Konstruktor:
+
 Mitarbeiter::Mitarbeiter(int id_Mitarbeiter, string name_Mitarbeiter, string qualifikation_Mitarbeiter)
 {
 	Mitarbeiter::id_Mitarbeiter = id_Mitarbeiter;
