@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include "mitarbeiter.h"
-//#include "maschine.h"
-//#include "intervall.h"
-//#include "firma.h"
+#include "maschine.h"
+#include "intervall.h"
+#include "firma.h"
 
 
 using namespace std;
@@ -12,34 +12,34 @@ class Wartungsplan{
 	private:
 	int id_Wartungsplan;
 	string name_Wartungsplan;
-    string* qualifikation_Mitarbeiter;
-	Mitarbeiter* mitarbeiter; 
-    //Maschine* maschine;
-    //Firma* firma;
-    //Intervall* intervall;
+	string notwendige_Qualifikation;
+	Maschine maschine;
+	Intervall intervall;
+	Mitarbeiter mitarbeiter;
+	Firma firma; //Firma der Maschine
 
-	
 	public:
 	//Getter:
 	int getid_Wartungsplan();
 	string getname_Wartungsplan();
-    string* getqualifikation_Mitarbeiter;
-	Mitarbeiter* getmitarbeiter();
-    //Maschine* getmaschine();
-    //Firma* getfirma;
-    //Intervall* getintervall;
+    string getnotwendige_Qualifikation();
+	Maschine getMaschine();
+	Intervall getIntervall();
+	Mitarbeiter getMitarbeiter();
+	Firma getFirma();
+
 
 	//Setter:
 	void setid_Wartungsplan(int id_Wartungsplan);
 	void setname_Wartungsplan(string name_Wartungsplan);
-    void setqualifikation_Mitarbeiter(string* qualifikation_Mitarbeiter);
-	void setmitarbeiter(Mitarbeiter* mitarbeiter);
-    //void setmaschine(Maschine* maschine);
-    //void setfirma(Firma* firma);
-    //void setintervall(Intervall* intervall);
+	void setnotwendige_Qualifikation(string notwendige_Qualifikation);
+	void setMaschine(Maschine maschine);
+	void setIntervall(Intervall intervall);
+	void setFirma(Firma firma);
+	void setmitarbeiter(Mitarbeiter mitarbeiter);
 
 	//Ausgabe:
 	void print();
 
-	Wartungsplan(int id_Wartungsplan, string name_Wartungsplan,string* qualifikation_Mitarbeiter, Mitarbeiter mitarbeiter, Maschine maschine, Firma* firma, Intervall* intervall);
+	Wartungsplan(int id_Wartungsplan, string name_Wartungsplan, string notwendige_Qualifikation, Maschine maschine, Intervall intervall, Mitarbeiter mitarbeiter,  Firma firma);
 };

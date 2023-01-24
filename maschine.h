@@ -26,4 +26,5 @@ class Maschine{
 	void print();
 
 	Maschine(int id_Maschine, string name_Maschine, Firma firma);
+	Maschine();
 };

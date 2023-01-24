@@ -2,7 +2,7 @@ all: main
 
  
 
-main: firma.o main.o
+main:  main.o
 	g++ -o main main.o firma.o
 
  

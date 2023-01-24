@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include "mitarbeiter.h"
-//#include "maschine.h"
+#include "maschine.h"
 #include "firma.h"
-//#include "intervall.h"
+#include "intervall.h"
 #include "wartungsplan.h"
 
 using namespace std;
@@ -18,26 +18,26 @@ string Wartungsplan::getname_Wartungsplan()
 {
 	return name_Wartungsplan;
 }
-string* Wartungsplan::getqualifikation_Mitarbeiter()
+string Wartungsplan::getnotwendige_Qualifikation()
 {
-	return qualifikation_Mitarbeiter;
+	return notwendige_Qualifikation;
 }
-Mitarbeiter Wartungsplan::getmitarbeiter()
+Maschine Wartungsplan::getMaschine()
+{
+	return maschine;
+}
+Intervall Wartungsplan::getIntervall()
+{
+	return intervall;
+}
+Mitarbeiter Wartungsplan::getMitarbeiter()
 {
 	return mitarbeiter;
 }
-//Maschine Wartungsplan::getmaschine()
-//{
-	//return maschine;
-//}
-//Firma Wartungsplan::getfirma()
-//{
-	//return firma;
-//}
-//Intervall Wartungsplan::getintervall()
-//{
-	//return intervall;
-//}
+Firma Wartungsplan::getFirma()
+{
+	return firma;
+}
 
 //Setter:
 void Wartungsplan::setid_Wartungsplan(int id_Wartungsplan)
@@ -48,42 +48,44 @@ void Wartungsplan::setname_Wartungsplan(string name_Wartungsplan)
 {
 	this->name_Wartungsplan = name_Wartungsplan;
 }
-void Wartungsplan::setqualifikation_Mitarbeiter(string* setqualifikation_Mitarbeiter)
+void Wartungsplan::setnotwendige_Qualifikation(string notwendige_Qualifikation)
 {
-	this->qualifikation_Mitarbeiter = qualifikation_Mitarbeiter;
+	this->notwendige_Qualifikation = notwendige_Qualifikation;
 }
-void Wartungsplan::setmitarbeiter_Wartungsplan(Mitarbeiter mitarbeiter)
-{
-	this->mitarbeiter = mitarbeiter;
-}
-
-/*void Wartungsplan::setmaschine(Maschine maschine)
+void Wartungsplan::setMaschine(Maschine maschine)
 {
 	this->maschine = maschine;
 }
-void Wartungsplan::setfirma(Firma* firma)
+void Wartungsplan::setIntervall(Intervall intervall)
+{
+	this->intervall = intervall;
+}
+void Wartungsplan::setFirma(Firma firma)
 {
 	this->firma = firma;
 }
-void Wartungsplan::setintervall(Intervall intervall)
+void Wartungsplan::setmitarbeiter(Mitarbeiter mitarbeiter)
 {
-	this->intervall = intervall;
-}*/
+	this->mitarbeiter = mitarbeiter;
+}
 
 //Ausgabe: //muss hier eine Ausgabe für zb qualifikation_Mitarbeiter rein ? Oder gibt der das in Mitarbeiter aus ? Ab hier weiter machen!
 void Wartungsplan::print()
 {
 	cout << "Die ID der Wartungsplan lautet:" <<id_Wartungsplan <<endl;
 	cout << "Der Name der Wartungsplan lautet:" <<name_Wartungsplan <<endl;
-	cout << "Der/die Mitarbeiter der Wartungsplans lautet/lauten:" <<mitarbeiter <<endl;
-    //cout << "Die Maschine/Maschinen der Wartungsplans lautet/lauten:" <<maschine <<endl;
+	cout << "Der/die Mitarbeiter der Wartungsplans lautet/lauten:" <<mitarbeiter.getname_Mitarbeiter() <<endl;
+    cout << "Die Maschine des Wartungsplans lautet:" << maschine.getname_Maschine() <<endl;
 }
 
 //Konstruktor:
-Wartungsplan::Wartungsplan(int id_Wartungsplan, string name_Wartungsplan, Mitarbeiter mitarbeiter)//, Maschine maschine)
+Wartungsplan::Wartungsplan(int id_Wartungsplan, string name_Wartungsplan, string notwendige_Qualifikation, Maschine maschine, Intervall intervall, Mitarbeiter mitarbeiter,  Firma firma)
 {
-	Wartungsplan::id_Wartungsplan = id_Wartungsplan;
-	Wartungsplan::name_Wartungsplan = name_Wartungsplan;
-	Wartungsplan::mitarbeiter = mitarbeiter;
-    //Wartungsplan::maschine = maschine;
+	this->id_Wartungsplan = id_Wartungsplan;
+	this->name_Wartungsplan = name_Wartungsplan;
+	this->notwendige_Qualifikation = notwendige_Qualifikation;
+	this->maschine = maschine;
+	this->intervall = intervall;
+	this->mitarbeiter = mitarbeiter;
+	this->firma = firma;
 }
