@@ -38,7 +38,7 @@ void Firma::setname_Firma(string name_Firma)
 
 
 //Methoden:
-void Firma::add_mitarbeiter(int id_Mitarbeiter, string name_Mitarbeiter, string qualifikation_Mitarbeiter)
+void Firma::add_Mitarbeiter(int id_Mitarbeiter, string name_Mitarbeiter, string qualifikation_Mitarbeiter)
 {
 	for (int i=0; i<alle_Mitarbeiter.size();i++)
 	{
