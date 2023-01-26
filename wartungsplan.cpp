@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
 #include "mitarbeiter.h"
-#include "maschine.h"
-#include "firma.h"
+//#include "maschine.h"
+//#include "firma.h"
 #include "intervall.h"
 #include "wartungsplan.h"
+#include "maschfirma.h"
 
 using namespace std;
 

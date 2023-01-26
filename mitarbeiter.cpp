@@ -47,3 +47,6 @@ Mitarbeiter::Mitarbeiter(int id_Mitarbeiter, string name_Mitarbeiter, string qua
 	Mitarbeiter::name_Mitarbeiter = name_Mitarbeiter;
 	Mitarbeiter::qualifikation_Mitarbeiter = qualifikation_Mitarbeiter;
 }
+
+Mitarbeiter::Mitarbeiter(){}
+Mitarbeiter::~Mitarbeiter(){}

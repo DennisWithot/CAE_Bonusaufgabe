@@ -11,7 +11,8 @@
                 "_UNICODE"
             ],
             "intelliSenseMode": "windows-msvc-x64",
-            "compilerPath": "g"
+            "compilerPath": "g",
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

@@ -1,9 +1,11 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include "mitarbeiter.h"
-#include "maschine.h"
+//#include "maschine.h"
 #include "intervall.h"
-#include "firma.h"
+//#include "firma.h"
+#include "maschfirma.h"
 
 
 using namespace std;

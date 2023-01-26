@@ -1,33 +1,21 @@
 #include <iostream>
 #include <string>
+#include <vector> 
+
 #include "mitarbeiter.h"
-#include "firma.h"
+//#include "firma.h"
 #include "intervall.h"
 #include "wartungsplan.h"
+#include "maschfirma.h"
 
 using namespace std;
 
-
-vector<Mitarbeiter> alle_Mitarbeiter;
-vector<Intervall> alle_Intervalle;
-vector<Wartungsplan> alle_Wartungsplaene;
-vector<Firma> alle_Firmen;
-bool run;
-
-int loop()
+int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
+	vector<Intervall>& alle_Intervalle,
+	vector<Wartungsplan>& alle_Wartungsplaene,
+	vector<Firma>& alle_Firmen, bool& run)
 {
-	/*Firma f1(1, "HALLO");
-	Firma f2(2, "POPO");
 
-	f1.print();
-	f2.print();
-
-	Mitarbeiter m1(1, "Thomas", "Geselle");
-	Mitarbeiter m2(2, "Gisela", "Auszubildener");
-
-	m1.print();
-	m2.print();
-*/
 
 	//Hauptmenue:
 
@@ -440,11 +428,16 @@ int loop()
 
 int main()
 {
+	vector<Mitarbeiter> alle_Mitarbeiter;
+	vector<Intervall> alle_Intervalle;
+	vector<Wartungsplan> alle_Wartungsplaene;
+	vector<Firma> alle_Firmen;
+	bool run;
 	run = true;
 	//run the loop while program is running, unless it is cancelled.
 	while(run==true)
 	{
-		if(loop()<0)
+		if(loop(alle_Mitarbeiter,alle_Intervalle,alle_Wartungsplaene, alle_Firmen, run)<0)
 		{
 			run = false;
 			return -1;
