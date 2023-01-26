@@ -1,15 +1,15 @@
+#include <fstream>
 #include <iostream>
-#include <string>
-#include <vector> 
-
-#include "mitarbeiter.h"
-//#include "firma.h"
-#include "intervall.h"
-#include "wartungsplan.h"
-#include "maschfirma.h"
-
-int main(){
-    Intervall i = Intervall(10);
-    std::cout<<i.getlaenge_Intervall()<<std::endl;
-    return 0;
+using namespace std;
+int main()
+{
+ofstream Ausgabe;
+Ausgabe.open("data.txt");
+if(Ausgabe)
+{
+Ausgabe << "Hallo Welt!" << endl;
+float pi = 3.14f;
+Ausgabe << "pi = " << pi << endl;
+}
+Ausgabe.close();
 }

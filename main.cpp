@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector> 
+#include <fstream>
 
 #include "mitarbeiter.h"
 //#include "firma.h"
@@ -10,7 +11,8 @@
 
 using namespace std;
 
-int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
+int loop(vector<Mitarbeiter>& alle_Mitarbeiter, 
+	vector<Maschine>& alle_Maschinen,
 	vector<Intervall>& alle_Intervalle,
 	vector<Wartungsplan>& alle_Wartungsplaene,
 	vector<Firma>& alle_Firmen, bool& run)
@@ -79,6 +81,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 
 			Maschine tempMaschine = Maschine(id_Maschine, name_Maschine, firma);
 			firma.add_Maschine(tempMaschine);
+			alle_Maschinen.push_back(tempMaschine);
 		}
 		if(input2 == 1) //Mitarbeiter hinzufuegen
 		{
@@ -382,28 +385,65 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 		cout<< "3: Alle Wartungspläne" <<endl;
 		cin>> input2;
 
-		/*if(input2 == 0)
-		//Exportieren der Daten in .txt!!
-		//define array of strings
-		string alle_Maschinen[10] = { "value0", "value1", "value2","value3", "value4", "value5","value6", "value7","value8", "value9" }; //können wir alle_Mitarbeiter direkt nehmen, ist schon ein Vektor!!
-		//open file for writing
-		ofstream fw("C:\\Users\\Besitzer\\Documents\\GitHub\\CAE_Bonusaufgabe\\alle_Maschinen.txt", std::ofstream::out);
-		//check if file was successfully opened for writing
-		if (fw.is_open())
+		if(input2 == 0)
 		{
-			//store array contents to text file
-			for (int i = 0; i < arraySize; i++) 
-			{
-				fw << alle_Maschinen[i] << "\n";
-			}
-			fw.close();
+			ofstream Ausgabe;
+			Ausgabe.open("Alle_Maschinen.txt");
+
+			if (Ausgabe)
+				
+				for (Maschine i: alle_Maschinen)
+				{
+					Ausgabe << i.getid_Maschine() << '\t' <<i.getname_Maschine() << '\t' <<i.getfirma().getname_Firma() <<endl;
+				}
+				
+			Ausgabe.close();
 		}
-		else
-		{ 
-			cout << "Problem with opening file";
+
+		if(input2 == 1)
+		{
+			ofstream Ausgabe;
+			Ausgabe.open("Alle_Mitarbeiter.txt");
+
+			if (Ausgabe)
+				
+				for (Mitarbeiter i: alle_Mitarbeiter)
+				{
+					Ausgabe << i.getid_Mitarbeiter() << '\t' <<i.getname_Mitarbeiter() << '\t' <<i.getqualifikation_Mitarbeiter() <<endl;
+				}
+				
+			Ausgabe.close();
 		}
-		//close the file after the writing operation is completed
-		fw.close();*/
+
+		if(input2 == 2)
+		{
+			ofstream Ausgabe;
+			Ausgabe.open("Alle_Wartungsintervalle.txt");
+
+			if (Ausgabe)
+				
+				for (Intervall i: alle_Intervalle)
+				{
+					Ausgabe << i.getlaenge_Intervall() <<endl;
+				}
+				
+			Ausgabe.close();
+		}
+
+		if(input2 == 3)
+		{
+			ofstream Ausgabe;
+			Ausgabe.open("Alle_Wartungsplaene.txt");
+
+			if (Ausgabe)
+				
+				for (Wartungsplan i: alle_Wartungsplaene)
+				{
+					Ausgabe << i.getid_Wartungsplan() << '\t' <<i.getname_Wartungsplan() << '\t' <<i.getnotwendige_Qualifikation() << '\t' <<i.getMaschine().getname_Maschine() << '\t' <<i.getIntervall().getlaenge_Intervall() << '\t' <<i.getMitarbeiter().getname_Mitarbeiter() << '\t' <<i.getFirma().getname_Firma() <<endl;
+				}
+				
+			Ausgabe.close();
+		}
 	}
 	else if(input == 3)
 	{
@@ -429,6 +469,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 int main()
 {
 	vector<Mitarbeiter> alle_Mitarbeiter;
+	vector<Maschine> alle_Maschinen;
 	vector<Intervall> alle_Intervalle;
 	vector<Wartungsplan> alle_Wartungsplaene;
 	vector<Firma> alle_Firmen;
@@ -437,7 +478,7 @@ int main()
 	//run the loop while program is running, unless it is cancelled.
 	while(run==true)
 	{
-		if(loop(alle_Mitarbeiter,alle_Intervalle,alle_Wartungsplaene, alle_Firmen, run)<0)
+		if(loop(alle_Mitarbeiter, alle_Maschinen, alle_Intervalle,alle_Wartungsplaene, alle_Firmen, run)<0)
 		{
 			run = false;
 			return -1;

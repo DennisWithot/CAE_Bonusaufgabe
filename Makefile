@@ -31,4 +31,4 @@ wartungsplan.o: wartungsplan.h wartungsplan.cpp
 	g++ -c wartungsplan.cpp 
 
 clean:
-	del main.o maschine.o intervall.o firma.o mitarbeiter.o wartungsplan.o
+	del main.o intervall.o maschfirma.o mitarbeiter.o wartungsplan.o
