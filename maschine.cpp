@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "maschine.h"
-
+#include "firma.h"
 using namespace std;
 
 
@@ -30,7 +30,7 @@ void Maschine::setname_Maschine(string name_Maschine)
 {
 	this->name_Maschine = name_Maschine;
 }
-Firma Maschine::setfirma(string firma)
+void Maschine::setfirma(Firma firma)
 {
 	this->firma = firma;
 
@@ -40,7 +40,7 @@ void Maschine::print()
 {
 	cout << "Die ID der Maschine lautet:" <<id_Maschine <<endl;
 	cout << "Der Name der Maschine lautet:" <<name_Maschine <<endl;
-	cout << "Die zugehörige Firma lautet:" <<firma <<endl;
+	cout << "Die zugehörige Firma lautet:" <<firma.getname_Firma() <<endl;
 }
 
 Maschine::Maschine(int id_Maschine, string name_Maschine, Firma firma)
@@ -48,5 +48,4 @@ Maschine::Maschine(int id_Maschine, string name_Maschine, Firma firma)
 	Maschine::id_Maschine = id_Maschine;
 	Maschine::name_Maschine = name_Maschine;
 	Maschine::firma = firma;
-;
 }

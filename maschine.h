@@ -1,9 +1,13 @@
+#pragma once
 #include <iostream>
 #include <string>
+
+#include "firma.h"
 
 
 using namespace std;
 
+class Firma;
 class Maschine{
 	private:
 	int id_Maschine;
@@ -26,4 +30,5 @@ class Maschine{
 	void print();
 
 	Maschine(int id_Maschine, string name_Maschine, Firma firma);
+	Maschine();
 };

@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 
@@ -26,4 +27,6 @@ class Mitarbeiter{
 	void print();
 
 	Mitarbeiter(int id_Mitarbeiter, string name_Mitarbeiter, string qualifikation_Mitarbeiter);
+	Mitarbeiter();
+	~Mitarbeiter();
 };

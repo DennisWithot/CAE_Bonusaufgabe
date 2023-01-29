@@ -1,3 +1,4 @@
+#pragma once
 using namespace std;
 
 class Intervall{
@@ -12,4 +13,5 @@ class Intervall{
 	void setlaenge_Intervall(int laenge_Intervall);
 
 	Intervall(int laenge_Intervall);
+	Intervall();
 };

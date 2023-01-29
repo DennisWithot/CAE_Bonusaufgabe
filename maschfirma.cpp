@@ -1,14 +1,59 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "mitarbeiter.h"
-#include "maschine.h"
-#include "firma.h"
+
+#include "maschfirma.h"
+
 
 using namespace std;
 
-vector<Mitarbeiter> alle_Mitarbeiter;
-vector<Maschine> alle_Maschinen;
+
+//Getter:
+
+int Maschine::getid_Maschine()
+{
+	return id_Maschine;
+}
+string Maschine::getname_Maschine()
+{
+	return name_Maschine;
+}
+Firma Maschine::getfirma()
+{
+	return firma;
+;
+}
+
+//Setter:
+void Maschine::setid_Maschine(int id_Maschine)
+{
+	this->id_Maschine = id_Maschine;
+}
+void Maschine::setname_Maschine(string name_Maschine)
+{
+	this->name_Maschine = name_Maschine;
+}
+void Maschine::setfirma(Firma firma)
+{
+	this->firma = firma;
+
+}
+//Ausgabe:
+void Maschine::print()
+{
+	cout << "Die ID der Maschine lautet:" <<id_Maschine <<endl;
+	cout << "Der Name der Maschine lautet:" <<name_Maschine <<endl;
+	cout << "Die zugehörige Firma lautet:" <<firma.getname_Firma() <<endl;
+}
+
+Maschine::Maschine(int id_Maschine, string name_Maschine, Firma firma)
+{
+	Maschine::id_Maschine = id_Maschine;
+	Maschine::name_Maschine = name_Maschine;
+	Maschine::firma = firma;
+}
+
+Maschine::Maschine(){}
 
 //Getter:
 int Firma::getid_Firma()
@@ -73,12 +118,12 @@ void Firma::print()
     //cout << "Die Maschine/Maschinen der Firmas lautet/lauten:" <<maschine <<endl;
 }
 
-void add_Maschine(Maschine maschine)
+void Firma::add_Maschine(Maschine maschine)
 {
-	alle_Maschinen.push_back(maschine);
+	this->alle_Maschinen.push_back(maschine);
 }
 
-void del_Maschine(int id)
+void Firma::del_Maschine(int id)
 {
 	for(int i=0; i<alle_Maschinen.size(); i++)
 	{
@@ -89,7 +134,7 @@ void del_Maschine(int id)
 		}
 	}
 }
-void del_Mitarbeiter(int id)
+void Firma::del_Mitarbeiter(int id)
 {
 	for(int i=0; i<alle_Mitarbeiter.size(); i++)
 	{
@@ -115,3 +160,5 @@ Firma::Firma(int id_Firma, string name_Firma)
 	Firma::id_Firma = id_Firma;
 	Firma::name_Firma = name_Firma;
 }
+
+Firma::Firma(){}

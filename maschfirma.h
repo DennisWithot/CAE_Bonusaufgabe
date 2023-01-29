@@ -1,18 +1,13 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <vector>
 
 #include "mitarbeiter.h"
-#include "maschine.h"
-
 
 
 using namespace std;
-
 class Maschine;
-
 class Firma{
 	private:
 	int id_Firma;
@@ -48,3 +43,29 @@ class Firma{
 	Firma(int id_Firma, string name_Firma);
 	Firma();
 };
+
+class Maschine{
+	private:
+	int id_Maschine;
+	string name_Maschine;
+	Firma firma;
+
+	
+	public:
+	//Getter:
+	int getid_Maschine();
+	string getname_Maschine();
+	Firma getfirma();
+
+	//Setter:
+	void setid_Maschine(int id_Maschine);
+	void setname_Maschine(string name_Maschine);
+	void setfirma(Firma firma);
+
+	//Ausgabe:
+	void print();
+
+	Maschine(int id_Maschine, string name_Maschine, Firma firma);
+	Maschine();
+};
+

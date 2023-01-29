@@ -24,3 +24,5 @@ Intervall::Intervall(int laenge_Intervall)
 	Intervall::laenge_Intervall = laenge_Intervall;
 
 }
+
+Intervall::Intervall(){}
