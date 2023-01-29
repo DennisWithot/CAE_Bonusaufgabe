@@ -44,4 +44,5 @@ class Wartungsplan{
 	void print();
 
 	Wartungsplan(int id_Wartungsplan, string name_Wartungsplan, string notwendige_Qualifikation, Maschine maschine, Intervall intervall, Mitarbeiter mitarbeiter,  Firma firma);
+	Wartungsplan();
 };

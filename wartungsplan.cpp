@@ -90,3 +90,5 @@ Wartungsplan::Wartungsplan(int id_Wartungsplan, string name_Wartungsplan, string
 	this->mitarbeiter = mitarbeiter;
 	this->firma = firma;
 }
+
+Wartungsplan::Wartungsplan(){}

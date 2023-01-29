@@ -2,9 +2,9 @@
 #include <string>
 #include <vector> 
 #include <fstream>
+#include <sstream>
 
 #include "mitarbeiter.h"
-//#include "firma.h"
 #include "intervall.h"
 #include "wartungsplan.h"
 #include "maschfirma.h"
@@ -418,7 +418,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 		if(input2 == 2)
 		{
 			ofstream Ausgabe;
-			Ausgabe.open("Alle_Wartungsintervalle.txt");
+			Ausgabe.open("Alle_Intervalle.txt");
 
 			if (Ausgabe)
 				
@@ -448,6 +448,268 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 	else if(input == 3)
 	{
 		//Importieren der Daten aus .txt!!
+		cout<< "Was möchten Sie importieren?" <<endl;
+		cout<< "0: Alle Maschinen" <<endl;
+		cout<< "1: Alle Mitarbeiter" <<endl;
+		cout<< "2: Alle Wartungsintervalle" <<endl;
+		cout<< "3: Alle Wartungspläne" <<endl;
+		cin>> input2;
+
+		if(input2 == 0) //importieren der Maschinen
+		{
+			ifstream Eingabe;
+			Eingabe.open("Alle_Maschinen.txt");
+			string zeile;
+			
+			
+
+			if (Eingabe)
+			{
+				//Bestimmung der Anzahl der Zeilen
+				int anzahl = 0;
+				while(getline(Eingabe, zeile)) anzahl++; 
+				Eingabe.close();
+				
+				//Öffnen und Einlesen der Attribute des Objektes
+				ifstream Eingabe;
+				Eingabe.open("Alle_Maschinen.txt");
+				for (int n = 1; n <= anzahl; n++)
+				{
+					getline(Eingabe, zeile);
+					Maschine current_Maschine;
+					char del = '\t';
+					stringstream ss(zeile);
+					string word;
+					int k= 0;
+
+					while (!ss.eof()) 
+					{
+						k = k + 1;
+						getline(ss, word, del);
+						cout << word << endl;
+						if (k==1)
+						{
+							int current_id_Maschine = stoi(word); //String zu Int kovertieren
+							current_Maschine.setid_Maschine(current_id_Maschine);
+						}
+						if (k==2)
+						{
+							string current_name_Maschine = word;
+							current_Maschine.setname_Maschine(current_name_Maschine);
+						}
+						if (k==3)
+						{
+							string current_name_Firma = word;
+							Firma current_Firma;
+							for (Firma i : alle_Firmen)
+							{
+								if (i.getname_Firma() == current_name_Firma)
+								{
+									current_Firma = i;
+								}
+							}
+							current_Maschine.setfirma(current_Firma);
+							current_Firma.add_Maschine(current_Maschine);
+						}
+					}
+					alle_Maschinen.push_back(current_Maschine); //Objekt zum Vektor hinzufügen
+				}
+				
+				
+				
+			}
+		}
+
+		if(input2 == 1) //importieren der Mitarbeiter
+		{
+		ifstream Eingabe;
+		Eingabe.open("Alle_Mitarbeiter.txt");
+		string zeile;
+			
+			
+
+			if (Eingabe)
+			{
+				//Bestimmung der Anzahl der Zeilen
+				int anzahl = 0;
+				while(getline(Eingabe, zeile)) anzahl++; 
+				Eingabe.close();
+				
+				//Öffnen und Einlesen der Attribute des Objektes
+				ifstream Eingabe;
+				Eingabe.open("Alle_Mitarbeiter.txt");
+				for (int n = 1; n <= anzahl; n++)
+				{
+					getline(Eingabe, zeile);
+					Mitarbeiter current_Mitarbeiter;
+					char del = '\t';
+					stringstream ss(zeile);
+					string word;
+					int k= 0;
+
+					while (!ss.eof()) 
+					{
+						k = k + 1;
+						getline(ss, word, del);
+						cout << word << endl;
+						if (k==1)
+						{
+							int current_id_Mitarbeiter = stoi(word); //String zu Int kovertieren
+							current_Mitarbeiter.setid_Mitarbeiter(current_id_Mitarbeiter);
+						}
+						if (k==2)
+						{
+							string current_name_Mitarbeiter = word;
+							current_Mitarbeiter.setname_Mitarbeiter(current_name_Mitarbeiter);
+						}
+						if (k==3)
+						{
+							string current_qualifikation_Mitarbeiter = word;
+							current_Mitarbeiter.setqualifikation_Mitarbeiter(current_qualifikation_Mitarbeiter);
+						}
+					}
+					alle_Mitarbeiter.push_back(current_Mitarbeiter); //Objekt zum Vektor hinzufügen
+				}
+				
+				
+				
+			}
+		}
+
+		if(input2 == 2) //importieren der Intervalle
+		{
+		ifstream Eingabe;
+		Eingabe.open("Alle_Wartungsintervalle.txt");
+		string zeile;
+			
+			
+
+			if (Eingabe)
+			{
+				//Bestimmung der Anzahl der Zeilen
+				int anzahl = 0;
+				while(getline(Eingabe, zeile)) anzahl++; 
+				Eingabe.close();
+				
+				//Öffnen und Einlesen der Attribute des Objektes
+				ifstream Eingabe;
+				Eingabe.open("Alle_Wartungsintervalle.txt");
+				for (int n = 1; n <= anzahl; n++)
+				{
+					getline(Eingabe, zeile);
+					Intervall current_Wartungsintervall;
+					int current_laenge_Intervall = stoi(zeile); //String zu Int kovertieren
+					current_Wartungsintervall.setlaenge_Intervall(current_laenge_Intervall);
+					alle_Intervalle.push_back(current_Wartungsintervall); //Objekt zum Vektor hinzufügen
+				}
+				
+				
+				
+			}
+		}
+
+		if(input2 == 3) //importieren der Wartungspläne
+		{
+			ifstream Eingabe;
+			Eingabe.open("Alle_Wartungsplaene.txt");
+			string zeile;
+			
+			
+
+			if (Eingabe)
+			{
+				//Bestimmung der Anzahl der Zeilen
+				int anzahl = 0;
+				while(getline(Eingabe, zeile)) anzahl++; 
+				Eingabe.close();
+				
+				//Öffnen und Einlesen der Attribute des Objektes
+				ifstream Eingabe;
+				Eingabe.open("Alle_Wartungsplaene.txt");
+				for (int n = 1; n <= anzahl; n++)
+				{
+					getline(Eingabe, zeile);
+					Wartungsplan current_Wartungsplan;
+					char del = '\t';
+					stringstream ss(zeile);
+					string word;
+					int k= 0;
+
+					while (!ss.eof()) 
+					{
+						k = k + 1;
+						getline(ss, word, del);
+						cout << word << endl;
+						if (k==1)
+						{
+							int current_id_Wartungsplan = stoi(word); //String zu Int kovertieren
+							current_Wartungsplan.setid_Wartungsplan(current_id_Wartungsplan);
+						}
+						if (k==2)
+						{
+							string current_name_Wartungsplan = word;
+							current_Wartungsplan.setname_Wartungsplan(current_name_Wartungsplan);
+						}
+						if (k==3)
+						{
+							string current_notwendige_Qualifikation = word;
+							current_Wartungsplan.setnotwendige_Qualifikation(current_notwendige_Qualifikation);
+						}
+						if (k==4)
+						{
+							string current_name_Maschine = word;
+							Maschine current_Maschine;
+							for (Maschine i : alle_Maschinen)
+							{
+								if (i.getname_Maschine() == current_name_Maschine)
+								{
+									current_Maschine = i;
+								}
+							}
+							current_Wartungsplan.setMaschine(current_Maschine);
+						}
+						if (k==5)
+						{
+							int currentIntervall = stoi(word); //String zu Int kovertieren
+							current_Wartungsplan.setIntervall(currentIntervall);
+						}
+						if (k==6)
+						{
+							
+							string current_name_Mitarbeiter = word;
+							Mitarbeiter current_Mitarbeiter;
+							
+							for (Mitarbeiter i : alle_Mitarbeiter)
+							{
+								if (i.getname_Mitarbeiter() == current_name_Mitarbeiter)
+								{
+									current_Mitarbeiter = i;
+								}
+							}
+							current_Wartungsplan.setmitarbeiter(current_Mitarbeiter);
+						}
+						if (k==7)
+						{
+							string current_name_Firma = word;
+							Firma current_Firma;
+							for (Firma i : alle_Firmen)
+							{
+								if (i.getname_Firma() == current_name_Firma)
+								{
+									current_Firma = i;
+								}
+							}
+							current_Wartungsplan.setFirma(current_Firma);
+						}
+					}
+					alle_Wartungsplaene.push_back(current_Wartungsplan); //Objekt zum Vektor hinzufügen
+				}
+				
+				
+				
+			}
+		}
+
 	}
 	else if (input == 4)
 	{
