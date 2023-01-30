@@ -21,12 +21,12 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 
 	//Hauptmenue:
 
-	cout<< "Willkommen im Hauptmenü, bitte wählen Sie eine Aktion aus." <<endl;
-	cout<< "0: Element hinzufügen" <<endl;
-	cout<< "1: Element löschen" <<endl;
+	cout<< "Willkommen im Hauptmenue, bitte waehlen Sie eine Aktion aus." <<endl;
+	cout<< "0: Element hinzufuegen" <<endl;
+	cout<< "1: Element loeschen" <<endl;
 	cout<< "2: Export Textdatei" <<endl;
 	cout<< "3: Import Textdatei" <<endl;
-	cout<< "4: Übersicht anzeigen" <<endl;
+	cout<< "4: Uebersicht anzeigen" <<endl;
 
 	int input;
 	int input2;
@@ -46,7 +46,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 
 	if (input == 0)
 	{
-		cout<< "Was möchten Sie hinzufügen?" <<endl;
+		cout<< "Was moechten Sie hinzufuegen?" <<endl;
 		cout<< "0: Maschine" <<endl;
 		cout<< "1: Mitarbeiter" <<endl;
 		cout<< "2: Wartungsintervall" <<endl;
@@ -60,7 +60,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 			cin>> id_Maschine;
 			cout<< "Nennen Sie den Namen der Maschine:";
 			cin>> name_Maschine;
-			cout<< "Nennen Sie die ID der gewünschten Firma:";
+			cout<< "Nennen Sie die ID der gewuenschten Firma:";
 			for (Firma i: alle_Firmen)
 			{
     			cout << i.getid_Firma() << '\t' <<i.getname_Firma() <<endl;
@@ -96,7 +96,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 		}
 		if(input2 == 2) //Intervall hinzufuegen
 		{
-			cout<< "Nennen Sie die Länge des Intervalls:";
+			cout<< "Nennen Sie die Laenge des Intervalls:";
 			cin>> laenge_Intervall;
 			Intervall intervall = Intervall(laenge_Intervall);
 			alle_Intervalle.push_back(intervall);
@@ -215,7 +215,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 	}
 	else if (input == 1)
 	{
-		cout<< "Was möchten Sie löschen?" <<endl;
+		cout<< "Was moechten Sie loeschen?" <<endl;
 		cout<< "0: Maschine" <<endl;
 		cout<< "1: Mitarbeiter" <<endl;
 		cout<< "2: Firma" <<endl;
@@ -224,7 +224,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 
 		if(input2 == 0) // Maschine loeschen
 		{
-			cout<< "Nennen Sie die ID der zu löschenden Maschine:";
+			cout<< "Nennen Sie die ID der zu loeschenden Maschine:";
 			for (Firma i: alle_Firmen)
 			{
 				for(Maschine j: i.get_alle_Maschinen())
@@ -265,7 +265,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 		}
 		if(input2 == 1) // Mitarbeiter loeschen
 		{
-			cout<< "Nennen Sie die ID des zu löschenden Mitarbeiters:";
+			cout<< "Nennen Sie die ID des zu loeschenden Mitarbeiters:";
 			for(Mitarbeiter i: alle_Mitarbeiter)
 			{
 				cout<<i.getid_Mitarbeiter()<<"\t"<<i.getname_Mitarbeiter();
@@ -300,7 +300,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 		}
 		if(input2 == 2) // Firma loeschen
 		{
-			cout<< "Nennen Sie die ID der zu löschenden Firma:";
+			cout<< "Nennen Sie die ID der zu loeschenden Firma:";
 			for (Firma i: alle_Firmen)
 			{
 				cout << i.getid_Firma() << '\t' << i.getname_Firma() << endl;
@@ -347,7 +347,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 		}
 		if(input2 == 3) // Wartungsplan loeschen
 		{
-			cout<< "Nennen Sie die ID des zu löschenden Wartungsplans:";
+			cout<< "Nennen Sie die ID des zu loeschenden Wartungsplans:";
 			for(Wartungsplan i: alle_Wartungsplaene)
 			{
 				cout<<i.getid_Wartungsplan()<<"\t"<<i.getname_Wartungsplan();
@@ -378,11 +378,11 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 	}
 	else if (input == 2)
 	{
-		cout<< "Was möchten Sie exportieren?" <<endl;
+		cout<< "Was moechten Sie exportieren?" <<endl;
 		cout<< "0: Alle Maschinen" <<endl;
 		cout<< "1: Alle Mitarbeiter" <<endl;
 		cout<< "2: Alle Wartungsintervalle" <<endl;
-		cout<< "3: Alle Wartungspläne" <<endl;
+		cout<< "3: Alle Wartungsplaene" <<endl;
 		cin>> input2;
 
 		if(input2 == 0)
@@ -448,11 +448,11 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 	else if(input == 3)
 	{
 		//Importieren der Daten aus .txt!!
-		cout<< "Was möchten Sie importieren?" <<endl;
+		cout<< "Was moechten Sie importieren?" <<endl;
 		cout<< "0: Alle Maschinen" <<endl;
 		cout<< "1: Alle Mitarbeiter" <<endl;
 		cout<< "2: Alle Wartungsintervalle" <<endl;
-		cout<< "3: Alle Wartungspläne" <<endl;
+		cout<< "3: Alle Wartungsplaene" <<endl;
 		cin>> input2;
 
 		if(input2 == 0) //importieren der Maschinen
@@ -714,6 +714,54 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 	else if (input == 4)
 	{
 		//Ausgeben der Übersicht!!
+		cout<< "Was moechten Sie ausgeben?" <<endl;
+		cout<< "0: Alle Maschinen" <<endl;
+		cout<< "1: Alle Mitarbeiter" <<endl;
+		cout<< "2: Alle Wartungsintervalle" <<endl;
+		cout<< "3: Alle Wartungsplaene" <<endl;
+		cin>> input2;
+
+		if(input2 == 0)
+		{
+		
+			for (Maschine i: alle_Maschinen)
+			{
+				cout << i.getid_Maschine() << '\t' <<i.getname_Maschine() << '\t' <<i.getfirma().getname_Firma() <<endl;
+			}
+				
+			
+		}
+
+		if(input2 == 1)
+		{
+
+			for (Mitarbeiter i: alle_Mitarbeiter)
+			{
+				cout << i.getid_Mitarbeiter() << '\t' <<i.getname_Mitarbeiter() << '\t' <<i.getqualifikation_Mitarbeiter() <<endl;
+			}
+			
+		}
+
+		if(input2 == 2)
+		{
+	
+			for (Intervall i: alle_Intervalle)
+			{
+				cout << i.getlaenge_Intervall() <<endl;
+			}
+
+		}
+
+		if(input2 == 3)
+		{
+
+			for (Wartungsplan i: alle_Wartungsplaene)
+			{
+				cout << i.getid_Wartungsplan() << '\t' <<i.getname_Wartungsplan() << '\t' <<i.getnotwendige_Qualifikation() << '\t' <<i.getMaschine().getname_Maschine() << '\t' <<i.getIntervall().getlaenge_Intervall() << '\t' <<i.getMitarbeiter().getname_Mitarbeiter() << '\t' <<i.getFirma().getname_Firma() <<endl;
+			}
+			
+		
+		}
 	}
 	else if(input == 5)
 	{
@@ -723,6 +771,8 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 	else
 	{
 		// ungültige Eingabe.
+		cout << "Sie haben eine ungueltige Eingabe getroffen!" << endl;
+
 		run = false;
 	}
 	return 0;
