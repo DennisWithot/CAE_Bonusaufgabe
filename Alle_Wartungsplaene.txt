@@ -1,1 +1,2 @@
-0	Wartung_Press_Miele	Geselle	Presse	4	Klausi	Miele
+1	WP1	Geselle	Presse	4	Klausi	Miele
+2	WP2	Meister	Saege	12	Marie	Kik

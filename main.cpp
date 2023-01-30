@@ -398,6 +398,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 				}
 				
 			Ausgabe.close();
+			cout << "Export erfolgreich durchgefuehrt!" <<endl <<endl;
 		}
 
 		if(input2 == 1)
@@ -413,6 +414,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 				}
 				
 			Ausgabe.close();
+			cout << "Export erfolgreich durchgefuehrt!" <<endl <<endl;
 		}
 
 		if(input2 == 2)
@@ -428,6 +430,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 				}
 				
 			Ausgabe.close();
+			cout << "Export erfolgreich durchgefuehrt!" <<endl <<endl;
 		}
 
 		if(input2 == 3)
@@ -443,6 +446,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 				}
 				
 			Ausgabe.close();
+			cout << "Export erfolgreich durchgefuehrt!" <<endl <<endl;
 		}
 	}
 	else if(input == 3)
@@ -486,7 +490,6 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 					{
 						k = k + 1;
 						getline(ss, word, del);
-						cout << word << endl;
 						if (k==1)
 						{
 							int current_id_Maschine = stoi(word); //String zu Int kovertieren
@@ -514,7 +517,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 					}
 					alle_Maschinen.push_back(current_Maschine); //Objekt zum Vektor hinzufügen
 				}
-				
+				cout << "Import erfolgreich durchgefuehrt!" <<endl <<endl;
 				
 				
 			}
@@ -551,7 +554,6 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 					{
 						k = k + 1;
 						getline(ss, word, del);
-						cout << word << endl;
 						if (k==1)
 						{
 							int current_id_Mitarbeiter = stoi(word); //String zu Int kovertieren
@@ -570,7 +572,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 					}
 					alle_Mitarbeiter.push_back(current_Mitarbeiter); //Objekt zum Vektor hinzufügen
 				}
-				
+				cout << "Import erfolgreich durchgefuehrt!" <<endl <<endl;
 				
 				
 			}
@@ -602,7 +604,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 					current_Wartungsintervall.setlaenge_Intervall(current_laenge_Intervall);
 					alle_Intervalle.push_back(current_Wartungsintervall); //Objekt zum Vektor hinzufügen
 				}
-				
+				cout << "Import erfolgreich durchgefuehrt!" <<endl <<endl;
 				
 				
 			}
@@ -704,7 +706,7 @@ int loop(vector<Mitarbeiter>& alle_Mitarbeiter,
 					}
 					alle_Wartungsplaene.push_back(current_Wartungsplan); //Objekt zum Vektor hinzufügen
 				}
-				
+				cout << "Import erfolgreich durchgefuehrt!" <<endl <<endl;
 				
 				
 			}
