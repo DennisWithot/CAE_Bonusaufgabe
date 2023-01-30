@@ -1,2 +1,0 @@
-Hallo Welt!
-pi = 3.14

@@ -8,7 +8,10 @@
 
 using namespace std;
 class Maschine;
-class Firma{
+class bew_Maschine;
+class stat_Maschine;
+class Firma
+{
 	private:
 	int id_Firma;
 	string name_Firma;
@@ -68,4 +71,48 @@ class Maschine{
 	Maschine(int id_Maschine, string name_Maschine, Firma firma);
 	Maschine();
 };
+/*
+class Stat_Maschine : Maschine
+{
+	private:
+	string standort_stat_Maschine;
 
+
+	
+	public:
+	//Getter:
+	string getstandort_stat_Maschine();
+
+
+	//Setter:
+	void setstandort_stat_Maschine(string standort_stat_Maschine);
+
+
+	//Ausgabe:
+	void print();
+
+	Stat_Maschine(string standort_stat_Maschine);
+};
+
+class Bew_Maschine : Maschine
+{
+	private:
+	int gewicht_bew_Maschine;
+
+
+	
+	public:
+	//Getter:
+	int getgewicht_bew_Maschine();
+
+
+	//Setter:
+	void setid_bew_Maschine(int gewicht_bew_Maschine);
+
+
+	//Ausgabe:
+	void print();
+
+	Bew_Maschine(int gewicht_bew_Maschine);
+};
+*/

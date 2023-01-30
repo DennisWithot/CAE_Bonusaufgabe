@@ -104,10 +104,6 @@ void Firma::add_Mitarbeiter(int id_Mitarbeiter, string name_Mitarbeiter, string 
 }
 
 
-/*void Firma::setmaschine(Maschine maschine)
-{
-	this->maschine = maschine;
-}*/
 
 //Ausgabe:
 void Firma::print()
@@ -162,3 +158,56 @@ Firma::Firma(int id_Firma, string name_Firma)
 }
 
 Firma::Firma(){}
+
+/*
+//Getter:
+string stat_Maschine::getstandort_stat_Maschine()
+{
+	return standort_stat_Maschine;
+}
+
+
+//Setter:
+void stat_Maschine::setstandort_stat_Maschine(string standort_stat_Maschine)
+{
+	this->standort_stat_Maschine = standort_stat_Maschine;
+}
+
+
+//Ausgabe:
+void stat_Maschine::print()
+{
+	cout << "Der Standort der stat_Maschine lautet:" <<standort_stat_Maschine <<endl;
+}
+
+//Konstruktor:
+Stat_Maschine::Stat_Maschine(string standort_stat_Maschine)
+{
+	Stat_Maschine::standort_stat_Maschine = standort_stat_Maschine;
+}
+
+//Getter:
+int bew_Maschine::getgewicht_bew_Maschine()
+{
+	return gewicht_bew_Maschine;
+}
+
+
+//Setter:
+void bew_Maschine::setgewicht_bew_Maschine(int gewicht_bew_Maschine)
+{
+	this->gewicht_bew_Maschine = gewicht_bew_Maschine;
+}
+
+
+//Ausgabe:
+void bew_Maschine::print()
+{
+	cout << "Das Gewicht der bew_Maschines lautet:" <<gewicht_bew_Maschine <<endl;
+}
+
+//Konstruktor:
+Bew_Maschine::Bew_Maschine(int gewicht_bew_Maschine)
+{
+	Bew_Maschine::gewicht_bew_Maschine = gewicht_bew_Maschine;
+}*/
